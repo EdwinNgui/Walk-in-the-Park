@@ -6,7 +6,6 @@ import Map from './assets/Pages/Map';
 import Profile from './assets/Pages/Profile';
 import MapTest from './Maptest';
 import MapComponent from './Map';
-import Camera from './assets/Pages/Camera';
 
 export default class App extends React.Component {
   state = {
@@ -29,17 +28,15 @@ export default class App extends React.Component {
       </>
       );
     } else if (page === 'Map') {
-      currentPage = <Map onButtonPress={this.handleButtonPress}/>;
+      currentPage = <Map />;
     } else if (page === 'Profile') {
       currentPage = <Profile />;
-    }else if (page === 'Camera'){
-      currentPage = <Camera/>;
     }
 
     return (
       <View style={styles.container}>
-        {currentPage}
         <Footer onButtonPress={this.handleButtonPress} />
+        {currentPage}
       </View>
     );
   }
