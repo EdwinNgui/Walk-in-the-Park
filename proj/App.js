@@ -4,6 +4,8 @@ import Footer from './assets/Pages/Footer';
 import History from './assets/Pages/History';
 import Map from './assets/Pages/Map';
 import Profile from './assets/Pages/Profile';
+import MapTest from './Maptest';
+import MapComponent from './Map';
 
 export default class App extends React.Component {
   state = {
@@ -15,7 +17,16 @@ export default class App extends React.Component {
     let currentPage = null;
 
     if (page === 'History') {
-      currentPage = <History />;
+      currentPage = (
+      <>
+        <View style = {styles.mapContainer}>
+          <MapComponent/>
+        </View>
+        <View style = {styles.pageContainer}>
+        <History></History>
+        </View>
+      </>
+      );
     } else if (page === 'Map') {
       currentPage = <Map />;
     } else if (page === 'Profile') {
@@ -37,7 +48,17 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    height:'100%',
+    backgroundColor: 'orange',
   },
+  text:{
+    display: 'flex',
+
+  },
+  mapContainer:{
+    height:'50%'
+  },
+  pageContainer:{
+    height:'50%'
+  }
 });
