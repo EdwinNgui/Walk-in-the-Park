@@ -21,7 +21,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.genesisAI.ravensApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -30,7 +31,7 @@
       [
         "@rnmapbox/maps",
         {
-          "RNMapboxMapsDownloadToken": "sk.ey.."
+          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoiZGFuaWVsbHUiLCJhIjoiY2x1ZWQ1NWMzMXI4ZDJzbGQxNjd4bThxaiJ9.UK_KZcIL9-iN9QcdRYKF3g"
         }
       ]
     ]
