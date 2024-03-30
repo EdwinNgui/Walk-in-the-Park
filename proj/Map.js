@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 import MapboxGL from "@rnmapbox/maps";
 
 MapboxGL.setAccessToken("pk.eyJ1IjoiZGFuaWVsbHUiLCJhIjoiY2x1ZWNpd2wzMHE0cjJxb2Y0NGR1djdvOSJ9.QNmyOP3y8Wbyy5ykuZHv9g");
+MapboxGL.setConnected(true);
 
 const styles = StyleSheet.create({
   page: {
@@ -21,12 +22,13 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Map extends Component {
-  componentDidMount() {
-    MapboxGL.setTelemetryEnabled(false);
-  }
 
-  render() {
+const Map = () => {
+    // Disable telemetry when the component mounts
+    React.useEffect(() => {
+      MapboxGL.setTelemetryEnabled(false);
+    }, []);
+  
     return (
       <View style={styles.page}>
         <View style={styles.container}>
@@ -34,5 +36,6 @@ export default class Map extends Component {
         </View>
       </View>
     );
-  }
-}
+  };
+  
+export default Map;
