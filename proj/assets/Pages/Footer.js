@@ -4,14 +4,14 @@ import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 export default function Footer({ onButtonPress }) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={() => onButtonPress('History')}>
-        <Text style={styles.text}>History</Text>
+      <TouchableOpacity style={styles.button} onPress={() => onButtonPress('Profile')}>
+        <Text style={styles.text}>Profile</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => onButtonPress('Map')}>
         <Text style={styles.text}>Map</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => onButtonPress('Profile')}>
-        <Text style={styles.text}>Profile</Text>
+      <TouchableOpacity style={styles.button} onPress={() => onButtonPress('History')}>
+        <Text style={styles.text}>History</Text>
       </TouchableOpacity>
     </View>
   );

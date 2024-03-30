@@ -4,6 +4,7 @@ import Footer from './assets/Pages/Footer';
 import History from './assets/Pages/History';
 import Map from './assets/Pages/Map';
 import Profile from './assets/Pages/Profile';
+import Camera from './assets/Pages/Camera';
 
 export default class App extends React.Component {
   state = {
@@ -17,15 +18,17 @@ export default class App extends React.Component {
     if (page === 'History') {
       currentPage = <History />;
     } else if (page === 'Map') {
-      currentPage = <Map />;
+      currentPage = <Map onButtonPress={this.handleButtonPress}/>;
     } else if (page === 'Profile') {
       currentPage = <Profile />;
+    }else if (page === 'Camera'){
+      currentPage = <Camera/>;
     }
 
     return (
       <View style={styles.container}>
-        <Footer onButtonPress={this.handleButtonPress} />
         {currentPage}
+        <Footer onButtonPress={this.handleButtonPress} />
       </View>
     );
   }
