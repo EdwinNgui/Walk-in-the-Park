@@ -2,21 +2,12 @@ import React, { useRef, useState, useEffect } from 'react';
 import MapView, { Marker } from 'react-native-maps';
 import { StyleSheet, View, Modal, ScrollView, TouchableOpacity, Text } from 'react-native';
 import * as Location from 'expo-location';
-<<<<<<< Updated upstream
 import Svg, {Path} from "react-native-svg";
 import ProgressBar from 'react-native-progress/Bar';
-=======
-import Svg, { Path } from "react-native-svg";
->>>>>>> Stashed changes
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 
-<<<<<<< Updated upstream
-export default function MapComponent() {
-  const xpPercentage = 60;
-=======
 export default function MapComponent(props) {
->>>>>>> Stashed changes
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
   const [locStatus, setLocStatus] = useState(false);
@@ -119,18 +110,7 @@ export default function MapComponent(props) {
                 </View>
               </View>
 
-              <View style={styles.xpBar}>
-                <View style={[styles.xpProgress, { width: `${xpPercentage}%` }]}></View>
-              </View>
             </ScrollView>
-<<<<<<< Updated upstream
-
-            {/* <TouchableOpacity onPress={toggleTasks} style={{ marginTop: 20 }}>
-=======
-            <TouchableOpacity onPress={toggleTasks} style={{ marginTop: 20 }}>
->>>>>>> Stashed changes
-              <Text>Close Tasks</Text>
-            </TouchableOpacity> */}
           </View>
         </View>
       </Modal>
@@ -170,11 +150,7 @@ export default function MapComponent(props) {
           ) : null}
         </MapView>
       </View>
-<<<<<<< Updated upstream
       <View style={styles.taskButtonContainer}>
-=======
-      <View style={styles.taskContainer}>
->>>>>>> Stashed changes
         <TouchableOpacity
           style={styles.taskButton}
           onPress={toggleTasks}>
@@ -186,7 +162,7 @@ export default function MapComponent(props) {
           </Svg>
         </TouchableOpacity>
       </View>
-<<<<<<< Updated upstream
+{/* 
       <TouchableOpacity
         style={[
           styles.button,
@@ -194,8 +170,8 @@ export default function MapComponent(props) {
         ]}
         onPress={() => getLocation()}>
         <Text style={[styles.text, selectedButton === 'Location' && styles.selectedText]}>Location</Text>
-      </TouchableOpacity>
-=======
+      </TouchableOpacity> */}
+
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.button}
@@ -203,7 +179,7 @@ export default function MapComponent(props) {
           <Text style={styles.text}>Find My Location</Text>
         </TouchableOpacity>
       </View>
->>>>>>> Stashed changes
+
     </View>
   );
 }
@@ -218,40 +194,21 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
   },
-<<<<<<< Updated upstream
   taskButtonContainer:{
-=======
-  taskContainer: {
->>>>>>> Stashed changes
     position: 'absolute',
     top: 80,
     left: 15,
   },
-<<<<<<< Updated upstream
   button:{
-=======
-  buttonContainer: {
->>>>>>> Stashed changes
     position: 'absolute',
     bottom: 100,
     justifyContent: 'center',
     alignSelf: 'center',
-<<<<<<< Updated upstream
     backgroundColor: '#f7f5f5',
     borderRadius: 30,
     paddingVertical: 24,
     paddingHorizontal: 24,
     marginHorizontal: 8,
-=======
-  },
-  button: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f7f5f5',
-    borderRadius: 20,
-    paddingVertical: 10,
-    paddingHorizontal: 25,
->>>>>>> Stashed changes
   },
   taskButton: {
     backgroundColor: 'transparent',
@@ -264,7 +221,6 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 6,
   },
-<<<<<<< Updated upstream
   selectedButton: {
     backgroundColor: '#234beb',
   },
@@ -311,6 +267,4 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 14,
   },
-=======
->>>>>>> Stashed changes
 });
