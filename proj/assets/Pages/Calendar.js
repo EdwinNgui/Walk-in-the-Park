@@ -10,7 +10,7 @@ const Calendar = (props) => {
     const activeDates = {
         'January' : [1,2,3],
         'February' : [10,11,12], 
-        'March' : [],
+        'March' : [31],
         'April' : [],
         'May' : [],
         'June' : [],
