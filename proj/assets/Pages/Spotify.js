@@ -1,19 +1,23 @@
 import React from 'react';
-import { StyleSheet, View, Text , TouchableOpacity, ScrollView} from 'react-native';
+import { StyleSheet, View, Text , TouchableOpacity, ScrollView,Image,Linking} from 'react-native';
 import Svg, {Path} from "react-native-svg";
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useRef } from 'react';
 import axios from 'axios';
+
 export default function Spotify(props) {
-  
+    const scrollViewRef = useRef(null);
     const callback = props.navigate;
     const backButton = () => {
       callback();
     }
     
-   
+    const handlePress = () => {
+      scrollViewRef.current.scrollToEnd({ animated: true });
+    };
+  
     const [reloadKey, setReloadKey] = useState(0);
     const [jsonData, setJsonData] = useState({"culture":"","history":"","latitude":0,"location":["","",""], "longitude":0,"song_info":{
-      "album":"","art":"","artist":"","spotify":"https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8?si=96cf615eceb4432a","title":""
+      "album":"","art":"https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369","artist":"","spotify":"https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8?si=96cf615eceb4432a","title":""
     }});
     useEffect(() => {
       const fetchData = async () => {
@@ -32,10 +36,12 @@ export default function Spotify(props) {
       setReloadKey(prevKey => prevKey + 1);
     };
 
+   
+
     
   return (
 
-    <ScrollView style ={{padding:'20%', paddingBottom:0, paddingLeft:'10%', paddingRight:'10%'}}>
+    <ScrollView style ={{padding:'20%', paddingBottom:0, paddingLeft:'10%', paddingRight:'10%',flexGrow: 0,}} ref={scrollViewRef}>
         <TouchableOpacity onPress={backButton}>
           <Svg onPress={backButton} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <Path d="M3 12H21" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -43,7 +49,7 @@ export default function Spotify(props) {
           </Svg>
        
         </TouchableOpacity>
-        <View style={{backgroundColor:'red'}}>
+        <View>
           <View style = {{display:'flex', justifyContent:'center', flexDirection:'row'}}>
             <Text style={{fontSize:30}}>Your Location:</Text>
             
@@ -51,9 +57,44 @@ export default function Spotify(props) {
           <View style = {{display:'flex', justifyContent:'center', flexDirection:'row'}}>
             <Text style={{fontSize:22}}>{jsonData.location[0]}</Text>
           </View>
-          
+
+          <View style = {{display:'flex', justifyContent:'center', flexDirection:'row', paddingTop:40, marginBottom:30}}>
+            <Image style={{width:380,height:380}} source={{uri:jsonData.song_info.art}}></Image>
+          </View>
+          <View style={{display:'flex', flexDirection:'column'}}>
+            <Text style={{fontSize:25, fontWeight:600,marginBottom:5}}>{jsonData.song_info.title}</Text>
+            <Text style={{fontSize:15, fontWeight:500,marginBottom:20}}>{jsonData.song_info.artist}</Text>
+          </View>
+          <View style = {{display:'flex',paddingLeft:30,alignItems:'center', flexDirection:'row', backgroundColor:'black', height:60, width:'80%',borderRadius:20, marginBottom:15}}>
+            <TouchableOpacity onPress={() => Linking.openURL(jsonData.song_info.spotify)} style={{ gap:28,justifyContent:'center',alignItems:'center',display:'flex',flexDirection:'row'}}>
+              
+              <Text style={{color:'white',fontWeight:600,fontSize:20}}>Listen on Spotify</Text>
+           
+              <Image style={{width:40, height:40}}source={{uri:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png"}}></Image>
+            </TouchableOpacity>
+          </View>
         </View>
-      
+
+        <View style={{display:'flex',flexDirection:'row', gap:20}}>
+        <View style={{paddingTop:3}}>
+          <Text style={{fontSize:17,fontWeight:500}}>Learn More</Text>
+        </View>
+        <TouchableOpacity onPress={handlePress}>
+          <Image source={{uri:"https://static.thenounproject.com/png/1123247-200.png"}} style={{width:30,height:30}}></Image>
+        </TouchableOpacity>
+
+        </View>
+
+        <View style ={{paddingTop:30, marginBottom:10}}>
+          <Text style={{fontWeight:600}}>Communities:</Text>
+          <Text>{jsonData.culture}</Text>
+        </View>
+
+        <View>
+          <Text>{jsonData.history}</Text>
+        </View>
+        <View style={{height:200}}></View>
+
 
     </ScrollView>
   );
