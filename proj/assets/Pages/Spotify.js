@@ -51,12 +51,12 @@ export default function Spotify(props) {
        
         </TouchableOpacity>
         <View>
-          <View style = {{display:'flex', justifyContent:'center', flexDirection:'row'}}>
-            <Text style={{fontSize:30}}>Your Location:</Text>
+          <View style = {{display:'flex', justifyContent:'center', flexDirection:'row', marginTop: 10}}>
+            <Text style={{fontSize:25}}>Your Location:</Text>
             
           </View>
           <View style = {{display:'flex', justifyContent:'center', flexDirection:'row'}}>
-            <Text style={{fontSize:22}}>{jsonData.location[0]}</Text>
+            <Text style={{fontSize:50, fontWeight: 'bold', justifyContent: 'center', color: '#de1502'}}>{jsonData.location[0]}</Text>
           </View>
 
           <View style = {{display:'flex', justifyContent:'center', flexDirection:'row', paddingTop:40, marginBottom:30}}>
@@ -87,13 +87,18 @@ export default function Spotify(props) {
 
         </View>
 
-        <View style ={{paddingTop:30, marginBottom:10}}>
-          <Text style={{fontWeight:600}}>Communities:</Text>
-          <Text>{jsonData.culture}</Text>
+        <View style ={{paddingTop:30, marginBottom:15}}>
+          <View style={{backgroundColor: '#2d3b91', borderRadius: 15, padding: 20}}>
+            <Text style={{fontWeight:600, marginBottom: 5, fontSize: 20, color: 'white', fontWeight: '900'}}>Communities</Text>
+            <Text style={{color: 'white', fontWeight: 'bold'}}>{jsonData.culture}</Text>
+          </View>
         </View>
 
         <View>
-          <Text>{jsonData.history}</Text>
+          <View style={{backgroundColor: '#2d3b91', borderRadius: 15, padding: 20}}>
+            <Text style={{fontWeight:600, marginTop: 15, marginBottom: 10, fontSize: 20, color: 'white', fontWeight: '900'}}>Challenges Faced and Empowerment</Text>
+            <Text style={{color: 'white', fontWeight: 'bold', marginBottom: 10}}>{jsonData.history}</Text>
+          </View>
         </View>
         <View style={{height:200}}></View>
 
