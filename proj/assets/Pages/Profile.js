@@ -22,7 +22,7 @@ export default function Profile() {
           <Text style={styles.level}>3</Text>
         </View>
         <View style={styles.xpBar}>
-          <ProgressBar progress={0.2} width={300} height={20} borderRadius={20} color={'#6C5CE7'} />
+          <ProgressBar progress={0.7} width={300} height={20} borderRadius={20} color={'#6C5CE7'} />
         </View>
       </View>
 
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#ede3da',
     fontWeight: '500',
+    marginTop: 10
   },
   friendsContainer: {
     marginTop: 20,
@@ -143,7 +144,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ede3da',
     textAlign: 'center',
-    marginBottom: 3,
-    marginTop: 20,
+    marginTop: 30,
   },
 });
