@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     zIndex: 1,
     marginRight: -20,
-    marginLeft: 10,
+    marginLeft: 30,
     backgroundColor: '#FEEC65',
   },
   level: {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgray',
     borderRadius: 10,
     overflow: 'hidden',
-    marginRight: 10,
+    marginRight: 30,
   },
   xpProgress: {
     height: '100%',
