@@ -15,9 +15,9 @@ export default function MapComponent(props) {
   const [isTasksVisible, setIsTasksVisible] = useState(false);
   const [isInfoVisible, setIsInfoVisible] = useState(false);
   const [neighbourhood, setNeighbourhood] = useState('');
-  const passback = props.navigate;
+  const passback = (lat,lng) => props.navigate(lat,lng);
   const navigateToInfoCard = () => {
-    passback();
+    passback(latitude,longitude);
   }
   
   useEffect(() => {
