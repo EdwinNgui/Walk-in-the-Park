@@ -41,6 +41,17 @@ def get_song():
     response["song_info"] = song_info
     response["history"] = history
 
+        # Load data from file
+    with open("database.json", encoding='utf-8') as jsonFile:
+        data = json.load(jsonFile)
+
+    # Modify the data
+    data["2024-03-31"] = response
+
+    # Write the modified data back to the file
+    with open("database.json", "w", encoding='utf-8') as jsonFile:
+        json.dump(data, jsonFile)
+
     return jsonify(response)
 
 @app.route('/get_location')
