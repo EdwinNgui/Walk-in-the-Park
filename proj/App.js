@@ -15,24 +15,22 @@ export default class App extends React.Component {
   render() {
     const { page } = this.state;
     let currentPage = null;
-<<<<<<< Updated upstream
-    const handlePassback = () =>{
-      console.log("Pressed")
+
+    const handlePassback = (lat,lng) =>{
+      this.setState({ page: 'Spotify', infoCardData: `http://100.67.202.66:6450/get_song?lat=${lat}&long=${lng}` });
     }
-=======
+
     const moveInfo = (arr) => {
       this.setState({ page: 'Spotify', infoCardData: arr });
     }
-    
 
->>>>>>> Stashed changes
     if (page === 'History') {
       currentPage = <History  onOrange = {(arr) => moveInfo(arr)}/>;
     } else if (page === 'Map') {
       currentPage = (
         <>
           <View style = {styles.mapContainer}>
-            <MapComponent navigate = {() => handlePassback()}/>
+            <MapComponent navigate = {(lat,lng) => handlePassback(lat,lng)}/>
           </View>
           <View style = {styles.pageContainer}>
       

@@ -79,7 +79,7 @@ const Calendar = (props) => {
 
     const rendewhiteDivsLg = daysLg.map((text, index) => (
         !activeDates[month].includes(text) ? 
-        <View key={index} onTouchEnd = {props.clicked}style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         :
