@@ -16,9 +16,9 @@ def get_district_suburb_city(lat,long):
     resp = requests.get(url, headers=headers)
 
     resp_data = json.loads(resp.text)
-    district = (resp_data["features"][0]["properties"]["district"])
-    suburb = (resp_data["features"][0]["properties"]["suburb"])
-    city = (resp_data["features"][0]["properties"]["city"])
+    district = (resp_data["features"][0]["properties"].get("district"))
+    suburb = (resp_data["features"][0]["properties"].get("suburb"))
+    city = (resp_data["features"][0]["properties"].get("city"))
     return [district,suburb,city]
 
 #print(get_district_suburb_city(45.3500402,-75.7468999))

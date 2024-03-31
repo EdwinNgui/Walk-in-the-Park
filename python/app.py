@@ -19,7 +19,7 @@ def get_song():
     lat = float(request.args.get('lat'))
     long = float(request.args.get('long'))
     location = get_district_suburb_city(lat,long)
-    #print(location)
+    location = [str(i) for i in location if i is not None]
     cultural_descriptor = (generate_response([
         "What cultural communities is " + ", ".join(location) + " known for? Return only a short list with the different communities in one line seperated by commas."
         ]))

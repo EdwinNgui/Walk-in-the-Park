@@ -70,5 +70,91 @@
         "spotify": "https://open.spotify.com/track/3lAun9V0YdTlCSIEXPvfsY",
         "title": "La Vie en rose"
         }
-    }
+    },
+    "2024-02-11": {
+        "culture": "Chinese, Vietnamese, Cambodian",
+        "history": "Communities defined by both culture and race face distinct challenges, often rooted in historical oppression and discrimination. These challenges can perpetuate systemic inequalities, social isolation, and barriers to economic and educational opportunities. Despite these hardships, such communities demonstrate resilience and unity, working to preserve their cultural traditions while advocating for equity and inclusion. Their contributions enrich and diversify society, shaping a more just and vibrant world for all.",
+        "latitude": 44.2279289,
+        "location": [
+        "University District",
+        "Kingston"
+        ],
+        "longitude": -76.4949753,
+        "song_info": {
+        "album": "After Hours",
+        "art": "https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36",
+        "artist": "The Weeknd",
+        "spotify": "https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b",
+        "title": "Blinding Lights"
+        }
+    },
+    "2024-02-12": {
+        "culture": "Lebanese, Pakistani, Somali, Ethiopian, Chinese",
+        "history": "The challenges faced by communities defined by both culture and race include systemic racism, discrimination, and lack of representation. These challenges have led to socioeconomic disparities, health inequities, and social marginalization. Despite these obstacles, these communities have demonstrated resilience and strength, advocating for their rights and working to create a more diverse and inclusive society. They promote cultural understanding, foster intergroup dialogue, and collaborate with other marginalized groups to challenge systemic barriers.",
+        "latitude": 45.3482393,
+        "location": [
+        "Crestview",
+        "Nepean",
+        "Ottawa"
+        ],
+        "longitude": -75.7339232,
+        "song_info": {
+        "album": "Toto IV",
+        "art": "https://i.scdn.co/image/ab67616d0000b2734a052b99c042dc15f933145b",
+        "artist": "TOTO",
+        "spotify": "https://open.spotify.com/track/2374M0fQpWi3dLnB54qaLX",
+        "title": "Africa"
+        }
+        },
+    "2024-03-31": {
+        "culture": "Italian, Greek, Chinese, Portuguese",
+        "history": "Communities defined by both culture and race face myriad challenges, including discrimination, marginalization, and systemic barriers. These challenges have had lasting impacts, perpetuating inequalities in education, housing, healthcare, and employment. Despite these obstacles, these communities demonstrate resilience and a commitment to diversity and inclusion, actively fostering welcoming and equitable environments for all members.",
+        "latitude": 43.6598045,
+        "location": [
+        "Old Toronto",
+        "University",
+        "Toronto"
+        ],
+        "longitude": -79.3998783,
+        "song_info": {
+        "album": "That's All",
+        "art": "https://i.scdn.co/image/ab67616d0000b273e774643594281699bde1e4ed",
+        "artist": "Bobby Darin",
+        "spotify": "https://open.spotify.com/track/3KzgdYUlqV6TOG7JCmx2Wg",
+        "title": "Beyond the Sea"
+        }
+    },
+    "2024-09-11": {
+        "culture": "Iranian, Chinese, Vietnamese, Polish",
+        "history": "Communities that share both a common culture and race often face challenges related to discrimination and prejudice. This can lead to social and economic marginalization, as well as a sense of isolation and alienation. In some cases, these communities may also face violence and other forms of oppression. These challenges can have lasting effects on the community, leading to a cycle of poverty, inequality, and social unrest. However, despite these challenges, many communities that share both a common culture and race have been able to thrive. They have done this by creating strong social and economic networks, as well as by working together to promote understanding and acceptance. These communities have also been able to maintain a strong sense of cultural identity, which has helped them to resist assimilation and preserve their unique heritage.",
+        "latitude": 64.1405021,
+        "location": [
+        "Laugardalur",
+        "Reykjavik"
+        ],
+        "longitude": -21.8792259,
+        "song_info": {
+        "album": "After Hours",
+        "art": "https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36",
+        "artist": "The Weeknd",
+        "spotify": "https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b",
+        "title": "Blinding Lights"
+        }
+        },
+    "2024-11-11": {
+        "culture": "Manchu, Hui, Mongol, Korean",
+        "history": "The challenges faced by communities that are defined by both culture and race are multifaceted. These communities often experience discrimination and prejudice, which can lead to social, economic, and health disparities. Discrimination can make it difficult for members of these communities to access education, employment, and healthcare. Prejudice can lead to social isolation and a lack of social support. These challenges can have a profound impact on the lives of individuals and families, and they can also perpetuate intergenerational poverty and inequality. Despite these challenges, many members of these communities are committed to supporting a diverse and inclusive community. They work to build bridges between different groups, and they advocate for policies that promote equity and justice.",
+        "latitude": 40.4314258,
+        "location": [
+        "Huairou District"
+        ],
+        "longitude": 116.5657937,
+        "song_info": {
+        "album": "Wednesday Morning, 3 A.M.",
+        "art": "https://i.scdn.co/image/ab67616d0000b2733b50c381e5f477c3cd066286",
+        "artist": "Simon & Garfunkel",
+        "spotify": "https://open.spotify.com/track/5y788ya4NvwhBznoDIcXwK",
+        "title": "The Sound of Silence - Acoustic Version"
+        }
+        }
 }
