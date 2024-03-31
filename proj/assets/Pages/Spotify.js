@@ -7,8 +7,9 @@ import axios from 'axios';
 export default function Spotify(props) {
     const scrollViewRef = useRef(null);
     const callback = props.navigate;
+    const callback0 = props.navigate0;
     const backButton = () => {
-      callback();
+      props.data.includes("get_song") ? callback() : callback0();
     }
     
     const handlePress = () => {
@@ -42,7 +43,7 @@ export default function Spotify(props) {
   return (
 
     <ScrollView style ={{padding:'20%', paddingBottom:0, paddingLeft:'10%', paddingRight:'10%',flexGrow: 0,}} ref={scrollViewRef}>
-        <TouchableOpacity onPress={backButton}>
+        <TouchableOpacity onPress={backButton} style={{alignSelf:'flex-end'}}>
           <Svg onPress={backButton} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <Path d="M3 12H21" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             <Path d="M12 3L21 12L12 21" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -64,6 +65,7 @@ export default function Spotify(props) {
           <View style={{display:'flex', flexDirection:'column'}}>
             <Text style={{fontSize:25, fontWeight:600,marginBottom:5}}>{jsonData.song_info.title}</Text>
             <Text style={{fontSize:15, fontWeight:500,marginBottom:20}}>{jsonData.song_info.artist}</Text>
+            
           </View>
           <View style = {{display:'flex',paddingLeft:30,alignItems:'center', flexDirection:'row', backgroundColor:'black', height:60, width:'80%',borderRadius:20, marginBottom:15}}>
             <TouchableOpacity onPress={() => Linking.openURL(jsonData.song_info.spotify)} style={{ gap:28,justifyContent:'center',alignItems:'center',display:'flex',flexDirection:'row'}}>
