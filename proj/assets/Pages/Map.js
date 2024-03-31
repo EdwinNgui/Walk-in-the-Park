@@ -23,7 +23,7 @@ export default function MapComponent(props) {
   useEffect(() => {
     const fetchNeighbourhood = async () => {
       try {
-        const response = await axios.get(`http://100.67.202.66:6450/get_song?lat=${latitude}&long=${longitude}`);
+        const response = await axios.get(`http://100.67.202.66:6450/get_location?lat=${latitude}&long=${longitude}`);
         setNeighbourhood(response.data.location[0]);
       } catch (error) {
         console.error('Error fetching neighbourhood:', error);

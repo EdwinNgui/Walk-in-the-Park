@@ -8,7 +8,7 @@ import Header from './assets/Pages/Header';
 import Spotify from './assets/Pages/Spotify';
 export default class App extends React.Component {
   state = {
-    page: 'Map',
+    page: 'History',
   }
 
   render() {
@@ -21,6 +21,10 @@ export default class App extends React.Component {
 
     const moveInfo = (arr) => {
       this.setState({ page: 'Spotify', infoCardData: arr });
+    }
+
+    const backToMap = () => {
+      this.setState({ page: 'Map' });
     }
 
     if (page === 'History') {
@@ -40,7 +44,7 @@ export default class App extends React.Component {
       currentPage = <Profile />;
     }
     else if (page === 'Spotify') {
-      currentPage = <Spotify data={this.state.infoCardData} />;
+      currentPage = <Spotify data={this.state.infoCardData} navigate = {backToMap}/>;
     }
     
 
