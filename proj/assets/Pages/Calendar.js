@@ -46,14 +46,16 @@ const Calendar = (props) => {
     const daysLg = Array(getFirstDayOfWeek(year,month)).fill(0).concat([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ,21,22,23,24,25,26,27,28,29,30 ,31])
     const daysSm = Array(getFirstDayOfWeek(year,month)).fill(0).concat([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ,21,22,23,24,25,26,27,28,29,30])
     const daysFe = Array(getFirstDayOfWeek(year,month)).fill(0).concat([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ,21,22,23,24,25,26,27,28,29])
-
+    const handleClick = () =>{
+        
+    }
     const rendewhiteDivsLg = daysLg.map((text, index) => (
         !activeDates[month].includes(text) ? 
         <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         :
-        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+        <View key={index} onTouchEnd={handleClick}   style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         ));
@@ -63,7 +65,7 @@ const Calendar = (props) => {
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         :
-        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+        <View key={index}  onTouchEnd={handleClick} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         ));
@@ -73,7 +75,7 @@ const Calendar = (props) => {
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         :
-        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+        <View key={index}  onTouchEnd={handleClick} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         ));
