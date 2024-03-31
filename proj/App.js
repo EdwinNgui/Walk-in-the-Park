@@ -27,6 +27,10 @@ export default class App extends React.Component {
       this.setState({ page: 'Map' });
     }
 
+    const backToHistory = () => {
+      this.setState({ page: 'History' })
+    }
+
     if (page === 'History') {
       currentPage = <History  onOrange = {(arr) => moveInfo(arr)}/>;
     } else if (page === 'Map') {
@@ -44,7 +48,7 @@ export default class App extends React.Component {
       currentPage = <Profile />;
     }
     else if (page === 'Spotify') {
-      currentPage = <Spotify data={this.state.infoCardData} navigate = {backToMap}/>;
+      currentPage = <Spotify data={this.state.infoCardData} navigate = {backToMap} navigate0 = {backToHistory}/>;
     }
     
 
