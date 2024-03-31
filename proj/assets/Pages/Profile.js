@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     width: '100%',
     paddingTop: 30,
-    paddingBottom: 50,
+    paddingBottom: 80,
   },
   descriptionText: {
     fontSize: 18,
