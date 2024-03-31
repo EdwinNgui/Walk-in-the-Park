@@ -23,7 +23,7 @@ export default class App extends React.Component {
             <MapComponent/>
           </View>
           <View style = {styles.pageContainer}>
-          <History></History>
+      
           </View>
         </>
         );
