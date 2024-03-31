@@ -111,15 +111,20 @@ const styles = StyleSheet.create({
     alignItems:'center',
     paddingTop:'10%',
     paddingBottom:'30%',
-    
+    backgroundColor:'#fffdef'
   },
   text: {
     
   },
   calendarContainer:{
     width:'90%',
+    paddingLeft:12,
     backgroundColor:'white',
-    height: 350,
-    marginBottom:0,
+    height: 380,
+    marginBottom:30,
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
   }
 });

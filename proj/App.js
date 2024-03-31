@@ -8,7 +8,7 @@ import Header from './assets/Pages/Header';
 import Spotify from './assets/Pages/Spotify';
 export default class App extends React.Component {
   state = {
-    page: 'History',
+    page: 'Map',
   }
 
   render() {

@@ -122,7 +122,7 @@ const Calendar = (props) => {
         
         <View style = {styles.calendarStyles}>
             <View style = {{paddingTop:'5%', display:"flex",flexDirection:'row',justifyContent:'center'}}>
-                <Text>{year} {month} </Text>
+                <Text style ={{fontWeight:700, fontSize: 20}}>{month} {year} </Text>
             </View>
             <View style = {{display:'flex',flexDirection:'row', gap:23.5,paddingLeft:18, paddingTop:20}}>
                 <Text>Sun</Text>

@@ -124,14 +124,20 @@ export default function MapComponent(props) {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
         <View style={{ backgroundColor: 'white', padding: 20, borderRadius: 10, width: '80%', maxHeight: '50%' }}>
           <ScrollView>
-          <Text style={{ fontSize: 30, textAlign: 'center', marginBottom: 2, fontWeight: 'bold' }}>Welcome to {neighbourhood}</Text>
+            <TouchableOpacity onPress={toggleInfo} style={{alignSelf:'flex-end'}}>
+              <Svg onPress={toggleInfo} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <Path d="M3 12H21" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <Path d="M12 3L21 12L12 21" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </Svg>
+            </TouchableOpacity>
+            <Text style={{ fontSize: 30, textAlign: 'center', marginBottom: 2, fontWeight: 'bold' }}>Welcome to {neighbourhood}</Text>
+            <TouchableOpacity onPress={navigateToInfoCard} style={{ marginTop: 20, backgroundColor: '#234beb', borderRadius: 10, paddingVertical: 10 }}>
+              <Text style={{ color: '#fff', textAlign: 'center', fontSize: 16 }}>Learn More Now</Text>
+            </TouchableOpacity>
           </ScrollView>
-          <TouchableOpacity onPress={navigateToInfoCard} style={{ marginTop: 20, backgroundColor: '#234beb', borderRadius: 10, paddingVertical: 10 }}>
-            <Text style={{ color: '#fff', textAlign: 'center', fontSize: 16 }}>Learn More Now</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={toggleInfo} style={{ marginTop: 20 }}>
+          {/* <TouchableOpacity onPress={toggleInfo} style={{ marginTop: 20 }}>
             <Text style={{ color: '#234beb', textAlign: 'center', fontSize: 16 }}>Close</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
     </Modal>
