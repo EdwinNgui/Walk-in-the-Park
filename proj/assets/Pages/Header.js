@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
+  
   },
   headerText: {
     color: '#fff',

@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
     paddingHorizontal: 10,
+    zIndex:10,
   },
   button: {
     justifyContent: 'center',

@@ -33,6 +33,7 @@ export default function History(props) {
 
       <View style = {styles.calendarContainer}>
         <Calendar
+      
           year= {2024}
           month='March'
           clicked = {(arr) => goOrange(arr)}
