@@ -33,4 +33,4 @@ def get_song():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)  # Change port as needed
+    app.run(host='0.0.0.0', port=6450)  # Change port as needed
