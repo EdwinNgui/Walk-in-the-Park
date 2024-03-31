@@ -1,6 +1,6 @@
 from google.cloud import aiplatform
 import os
-    
+
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "application_default_credentials.json"
 
 PROJECT_ID = 865071625837  # @param {type:"string"} ENV VARIABLE
