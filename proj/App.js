@@ -4,9 +4,7 @@ import Footer from './assets/Pages/Footer';
 import History from './assets/Pages/History';
 import Map from './assets/Pages/Map';
 import Profile from './assets/Pages/Profile';
-import MapTest from './Maptest';
-import MapComponent from './Map';
-
+import MapComponent from './assets/Pages/MapPin';
 export default class App extends React.Component {
   state = {
     page: 'History',
