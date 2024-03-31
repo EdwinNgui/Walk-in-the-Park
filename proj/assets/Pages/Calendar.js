@@ -1,6 +1,10 @@
 import React from 'react'
 import {Text, View, StyleSheet} from 'react-native';
+import { useState } from 'react';
+import InfoCard from './InfoCard';
 const Calendar = (props) => {
+    const [popup, setPopup] = useState(false);
+    const [date0, setDate0] = useState([0,0,0]);
     const year = props.year;
     const month = props.month;
     const activeDates = {
@@ -43,17 +47,43 @@ const Calendar = (props) => {
         // Return the day of the month, which gives the number of days in the month
         return lastDayOfMonth.getDate();
     }
+    const getMonthNumber = monthName => {
+        const months = {
+          "January": "01",
+          "February": "02",
+          "March": "03",
+          "April": "04",
+          "May": "05",
+          "June": "06",
+          "July": "07",
+          "August": "08",
+          "September": "09",
+          "October": "10",
+          "November": "11",
+          "December": "12"
+        };
+      
+        return months[monthName];
+      };
+      
     const daysLg = Array(getFirstDayOfWeek(year,month)).fill(0).concat([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ,21,22,23,24,25,26,27,28,29,30 ,31])
     const daysSm = Array(getFirstDayOfWeek(year,month)).fill(0).concat([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ,21,22,23,24,25,26,27,28,29,30])
     const daysFe = Array(getFirstDayOfWeek(year,month)).fill(0).concat([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ,21,22,23,24,25,26,27,28,29])
+    const passback = (arr) => props.clicked(arr);
+    const handleClick = (m,y,d) =>{
+        setPopup(true);
+        setDate0([m,y,d])
+        passback(`http://100.67.202.66:6450/get_marker?year=${y}&month=${getMonthNumber(m)}&day=${d}`)
+    }
+    
 
     const rendewhiteDivsLg = daysLg.map((text, index) => (
         !activeDates[month].includes(text) ? 
-        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+        <View key={index} onTouchEnd = {props.clicked}style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         :
-        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+        <View key={index} onTouchEnd={() => handleClick(month,year,text)}  style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         ));
@@ -63,7 +93,7 @@ const Calendar = (props) => {
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         :
-        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+        <View key={index}  onTouchEnd={() => handleClick(month,year,text)} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         ));
@@ -73,7 +103,7 @@ const Calendar = (props) => {
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         :
-        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+        <View key={index}  onTouchEnd={() => handleClick(month,year,text)} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         ));
@@ -89,6 +119,7 @@ const Calendar = (props) => {
         return rendewhiteDivsLg;
     }
     return (
+        
         <View style = {styles.calendarStyles}>
             <View style = {{paddingTop:'5%', display:"flex",flexDirection:'row',justifyContent:'center'}}>
                 <Text>{year} {month} </Text>
