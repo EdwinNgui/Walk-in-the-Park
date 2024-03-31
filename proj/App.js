@@ -15,26 +15,26 @@ export default class App extends React.Component {
     let currentPage = null;
 
     if (page === 'History') {
-      currentPage = (
-      <>
-        <View style = {styles.mapContainer}>
-          <MapComponent/>
-        </View>
-        <View style = {styles.pageContainer}>
-        <History></History>
-        </View>
-      </>
-      );
+      currentPage = <History/>;
     } else if (page === 'Map') {
-      currentPage = <Map />;
+      currentPage = (
+        <>
+          <View style = {styles.mapContainer}>
+            <MapComponent/>
+          </View>
+          <View style = {styles.pageContainer}>
+      
+          </View>
+        </>
+        );
     } else if (page === 'Profile') {
       currentPage = <Profile />;
     }
 
     return (
       <View style={styles.container}>
-        <Footer onButtonPress={this.handleButtonPress} />
         {currentPage}
+        <Footer onButtonPress={this.handleButtonPress} />
       </View>
     );
   }
@@ -47,7 +47,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     height:'100%',
-    backgroundColor: 'orange',
+
   },
   text:{
     display: 'flex',
