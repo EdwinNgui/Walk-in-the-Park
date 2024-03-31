@@ -3,6 +3,20 @@ import {Text, View, StyleSheet} from 'react-native';
 const Calendar = (props) => {
     const year = props.year;
     const month = props.month;
+    const activeDates = {
+        'January' : [1,2,3],
+        'February' : [10,11,12], 
+        'March' : [],
+        'April' : [],
+        'May' : [],
+        'June' : [],
+        'July' : [],
+        'August' : [],
+        'September' :[11],
+        'October': [],
+        'November' : [],
+        'December': [11]
+    }
     const monthToInt = {
         'january': 0,
         'february':1,
@@ -21,20 +35,86 @@ const Calendar = (props) => {
         const firstDayOfMonth = new Date(year, monthToInt[month.toLowerCase()], 1);
         return firstDayOfMonth.getDay();
     }
+    const getDaysInMonth = (year,month) =>{
+        if (monthToInt[month.toLowerCase()] === 1){
+            return 29;
+        }
+        const lastDayOfMonth = new Date(year, monthToInt[month.toLowerCase()]+1, 0);
+        // Return the day of the month, which gives the number of days in the month
+        return lastDayOfMonth.getDate();
+    }
+    const daysLg = Array(getFirstDayOfWeek(year,month)).fill(0).concat([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ,21,22,23,24,25,26,27,28,29,30 ,31])
+    const daysSm = Array(getFirstDayOfWeek(year,month)).fill(0).concat([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ,21,22,23,24,25,26,27,28,29,30])
+    const daysFe = Array(getFirstDayOfWeek(year,month)).fill(0).concat([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ,21,22,23,24,25,26,27,28,29])
 
+    const rendewhiteDivsLg = daysLg.map((text, index) => (
+        !activeDates[month].includes(text) ? 
+        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+            <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
+        </View>
+        :
+        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+            <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
+        </View>
+        ));
+    const rendewhiteDivsSm = daysSm.map((text, index) => (
+        !activeDates[month].includes(text) ? 
+        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+            <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
+        </View>
+        :
+        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+            <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
+        </View>
+        ));
+    const rendewhiteDivsFe = daysFe.map((text, index) => (
+        !activeDates[month].includes(text) ? 
+        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+            <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
+        </View>
+        :
+        <View key={index} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+            <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
+        </View>
+        ));
+    
+
+    const renderDays = (year,month) =>{
+        if (getDaysInMonth(year,month) === 29){
+            return rendewhiteDivsFe;
+        }
+        else if (getDaysInMonth(year,month) === 30){
+            return rendewhiteDivsSm;
+        }
+        return rendewhiteDivsLg;
+    }
     return (
         <View style = {styles.calendarStyles}>
-            <Text>{year} {month} </Text>
-            <Text>{getFirstDayOfWeek(year,month)}</Text>
+            <View style = {{paddingTop:'5%', display:"flex",flexDirection:'row',justifyContent:'center'}}>
+                <Text>{year} {month} </Text>
+            </View>
+            <View style = {{display:'flex',flexDirection:'row', gap:23.5,paddingLeft:18, paddingTop:20}}>
+                <Text>Sun</Text>
+                <Text>Mon</Text>
+                <Text>Tue</Text>
+                <Text>Wed</Text>
+                <Text>Thr</Text>
+                <Text>Fri</Text>
+                <Text>Sat</Text>
+            </View>
+            <View>
+            <View style ={{paddingLeft:12, paddingRight:8,display: 'flex', flexDirection:'row',flexWrap:'wrap', padding:20 , gap:13}}>{renderDays(year,month)}</View>
+            </View>
         </View>
-    )
+    )   
 }
 
 const styles = StyleSheet.create({
     calendarStyles: {
+      width:'100%',
+      height:"100%",
       display:'flex',
-
-      alignItems:'center',
+      flexDirection:'column'
     },
     text: {
       
