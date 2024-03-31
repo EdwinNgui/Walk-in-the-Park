@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import Footer from './assets/Pages/Footer';
 import History from './assets/Pages/History';
 import Profile from './assets/Pages/Profile';
-import MapComponent from './assets/Pages/MapDEPRECIATED';
+import MapComponent from './assets/Pages/Map';
 export default class App extends React.Component {
   state = {
     page: 'History',
