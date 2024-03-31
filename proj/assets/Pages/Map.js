@@ -3,9 +3,11 @@ import MapView, {Marker} from 'react-native-maps';
 import { StyleSheet, View, Modal, ScrollView, Button, TouchableOpacity, Text} from 'react-native';
 import * as Location from 'expo-location';
 import Svg, {Path} from "react-native-svg";
+import ProgressBar from 'react-native-progress/Bar';
 import axios from 'axios';
 
 export default function MapComponent() {
+  const xpPercentage = 60;
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
   const [locStatus, setLocStatus] = useState(false);
@@ -57,13 +59,40 @@ export default function MapComponent() {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
           <View style={{ backgroundColor: 'white', padding: 20, borderRadius: 10, width: '80%', maxHeight: '80%' }}>
             <ScrollView>
-              <Text>Scrollable content goes here...</Text>
-              {/* Add more content here */}
+              <View style={styles.header}>
+                <Text style={styles.headerText}>Daily Tasks</Text>
+                <TouchableOpacity onPress={toggleTasks}>
+                  <Svg onPress={toggleTasks} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <Path d="M3 12H21" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <Path d="M12 3L21 12L12 21" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </Svg>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.taskContainer}>
+                <View style={styles.taskCard}>
+                  <Text style={styles.taskTitle}>Take a picture</Text>
+                  <Text style={styles.taskSubtitle}>10 xp</Text>
+                  <ProgressBar progress={0.6} width={200} height={10} color={'#6C5CE7'} />
+                  <Text style={styles.progressText}>60% completed</Text>
+                </View>
+                
+                <View style={styles.taskCard}>
+                  <Text style={styles.taskTitle}>Explore a new area</Text>
+                  <Text style={styles.taskSubtitle}>20 xp</Text>
+                  <ProgressBar progress={0.2} width={200} height={10} color={'#6C5CE7'} />
+                  <Text style={styles.progressText}>20% completed</Text>
+                </View>
+              </View>
+
+              <View style={styles.xpBar}>
+                <View style={[styles.xpProgress, { width: `${xpPercentage}%` }]}></View>
+              </View>
             </ScrollView>
 
-            <TouchableOpacity onPress={toggleTasks} style={{ marginTop: 20 }}>
+            {/* <TouchableOpacity onPress={toggleTasks} style={{ marginTop: 20 }}>
               <Text>Close Tasks</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
       </Modal>
@@ -102,7 +131,7 @@ export default function MapComponent() {
           ) : null}
         </MapView>
       </View>
-      <View style = {styles.taskContainer}>
+      <View style={styles.taskButtonContainer}>
         <TouchableOpacity
           style={[
             styles.taskButton,
@@ -117,17 +146,14 @@ export default function MapComponent() {
           </Svg>
         </TouchableOpacity>
       </View>
-      <View style = {styles.buttonContainer}>
-        <TouchableOpacity
-          style={[
-            styles.button,
-            selectedButton === 'Location' && styles.selectedButton,
-          ]}
-          onPress={() => getLocation()}>
-          <Text style={[styles.text, selectedButton === 'Location' && styles.selectedText]}>Location</Text>
-        </TouchableOpacity>
-
-      </View>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          selectedButton === 'Location' && styles.selectedButton,
+        ]}
+        onPress={() => getLocation()}>
+        <Text style={[styles.text, selectedButton === 'Location' && styles.selectedText]}>Location</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -142,7 +168,7 @@ const styles = StyleSheet.create({
   map: {
     height: '100%',
   },
-  taskContainer:{
+  taskButtonContainer:{
     position: 'absolute',
     display: 'flex',
     top: 80,
@@ -150,25 +176,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  buttonContainer:{
+  button:{
     position: 'absolute',
     display:'flex',
     bottom: 100,
+    justifyContent: 'center',
     alignSelf: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ffffff',
-    paddingHorizontal: 16,
-    paddingVertical: 16,
-    borderRadius: 30,
-  },
-  button:{
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#f7f5f5',
-    borderRadius: 20,
-    paddingVertical: 10,
-    paddingHorizontal: 25,
+    borderRadius: 30,
+    paddingVertical: 24,
+    paddingHorizontal: 24,
     marginHorizontal: 8,
   },
   taskButton:{
@@ -199,5 +216,44 @@ const styles = StyleSheet.create({
   selectedText: {
     color: '#fff', // Text color when button is selected
   },
-  button: {},
+
+
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  headerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  taskContainer: {
+    alignItems: 'center',
+  },
+  taskCard: {
+    backgroundColor: '#F9FAFB',
+    borderRadius: 10,
+    padding: 20,
+    marginBottom: 20,
+    width: '100%',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  taskTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  taskSubtitle: {
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  progressText: {
+    marginTop: 10,
+    fontSize: 14,
+  },
 });

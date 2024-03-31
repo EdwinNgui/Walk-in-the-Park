@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
+import ProgressBar from 'react-native-progress/Bar';
 
 import PFP from "../TorontoPFP.png";
 import PFP1 from "../PFP1.jpg";
@@ -7,7 +8,6 @@ import PFP2 from "../PFP2.png";
 import PFP3 from "../PFP3.jpg";
 
 export default function Profile() {
-  const xpPercentage = 70;
 
   return (
     <View style={styles.container}>
@@ -22,7 +22,7 @@ export default function Profile() {
           <Text style={styles.level}>3</Text>
         </View>
         <View style={styles.xpBar}>
-          <View style={[styles.xpProgress, { width: `${xpPercentage}%` }]}></View>
+          <ProgressBar progress={0.2} width={300} height={20} borderRadius={20} color={'#6C5CE7'} />
         </View>
       </View>
 
@@ -95,14 +95,6 @@ const styles = StyleSheet.create({
   xpBar: {
     flex: 1,
     height: 20,
-    backgroundColor: 'lightgray',
-    borderRadius: 10,
-    overflow: 'hidden',
-    marginRight: 30,
-  },
-  xpProgress: {
-    height: '100%',
-    backgroundColor: '#edc707',
   },
   descriptionContainer: {
     padding: 20,
