@@ -60,15 +60,15 @@ export default function Spotify(props) {
           </View>
 
           <View style = {{display:'flex', justifyContent:'center', flexDirection:'row', paddingTop:40, marginBottom:30}}>
-            <Image style={{width:380,height:380}} source={{uri:jsonData.song_info.art}}></Image>
+            <Image style={{width:380,height:380,shadowColor: 'black',shadowOffset: { width: 0, height: 4 },shadowOpacity: 0.3,shadowRadius: 4,}} source={{uri:jsonData.song_info.art}}></Image>
           </View>
           <View style={{display:'flex', flexDirection:'column'}}>
             <Text style={{fontSize:25, fontWeight:600,marginBottom:5}}>{jsonData.song_info.title}</Text>
             <Text style={{fontSize:15, fontWeight:500,marginBottom:20}}>{jsonData.song_info.artist}</Text>
             
           </View>
-          <View style = {{display:'flex',paddingLeft:30,alignItems:'center', flexDirection:'row', backgroundColor:'black', height:60, width:'80%',borderRadius:20, marginBottom:15}}>
-            <TouchableOpacity onPress={() => Linking.openURL(jsonData.song_info.spotify)} style={{ gap:28,justifyContent:'center',alignItems:'center',display:'flex',flexDirection:'row'}}>
+          <View style = {{display:'flex',paddingLeft:30,alignItems:'center', flexDirection:'row', backgroundColor:'black', height:60, width:'80%',borderRadius:20, marginBottom:15, }}>
+            <TouchableOpacity onPress={() => Linking.openURL(jsonData.song_info.spotify)} style={{ gap:28,justifyContent:'center',alignItems:'center',display:'flex',flexDirection:'row',shadowColor: 'black',shadowOffset: { width: 0, height: 4 },shadowOpacity: 0.3,shadowRadius: 4,}}>
               
               <Text style={{color:'white',fontWeight:600,fontSize:20}}>Listen on Spotify</Text>
            

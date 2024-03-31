@@ -200,6 +200,12 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
   },
+  buttonContainer: {
+    position: 'absolute',
+    bottom: 20,
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
   taskButtonContainer:{
     position: 'absolute',
     top: 80,
