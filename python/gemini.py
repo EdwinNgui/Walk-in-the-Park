@@ -95,7 +95,6 @@ def get_song_info(query):
     data = sp.search(q=query, limit=1)['tracks']['items'][0]
     return data['name'], data['album']['name'], data['artists'][0]['name'], data['external_urls']['spotify'], data['album']['images'][0]['url']
 
-
 # Load from local file
 #image = Image.load_from_file("image.png")
 
