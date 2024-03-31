@@ -83,7 +83,7 @@ const Calendar = (props) => {
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         :
-        <View key={index} onTouchEnd={() => handleClick(month,year,text)}  style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, borderRadius: 20, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+        <View key={index} onTouchEnd={() => handleClick(month,year,text)}  style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, borderRadius: 20, backgroundColor : '#6580eb' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         ));
@@ -93,7 +93,7 @@ const Calendar = (props) => {
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         :
-        <View key={index}  onTouchEnd={() => handleClick(month,year,text)} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, borderRadius: 20, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+        <View key={index}  onTouchEnd={() => handleClick(month,year,text)} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, borderRadius: 20, backgroundColor : '#6580eb' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         ));
@@ -103,7 +103,7 @@ const Calendar = (props) => {
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         :
-        <View key={index}  onTouchEnd={() => handleClick(month,year,text)} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, borderRadius: 20, backgroundColor : 'orange' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
+        <View key={index}  onTouchEnd={() => handleClick(month,year,text)} style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, borderRadius: 20, backgroundColor : '#6580eb' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>
             <Text style = {text !== 0 ? {color : 'black'} : {color : 'white'}}>{text}</Text>
         </View>
         ));
