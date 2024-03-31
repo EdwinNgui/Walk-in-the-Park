@@ -13,14 +13,16 @@ export default class App extends React.Component {
   render() {
     const { page } = this.state;
     let currentPage = null;
-
+    const handlePassback = () =>{
+      console.log("Pressed")
+    }
     if (page === 'History') {
       currentPage = <History/>;
     } else if (page === 'Map') {
       currentPage = (
         <>
           <View style = {styles.mapContainer}>
-            <MapComponent/>
+            <MapComponent navigate = {() => handlePassback()}/>
           </View>
           <View style = {styles.pageContainer}>
       
