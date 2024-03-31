@@ -1,8 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import MapView, {Marker} from 'react-native-maps';
-import { StyleSheet, View , Button, TouchableOpacity, Text} from 'react-native';
+import { StyleSheet, View, Modal, ScrollView, Button, TouchableOpacity, Text} from 'react-native';
 import * as Location from 'expo-location';
-import { useState } from 'react';
 import Svg, {Path} from "react-native-svg";
 import axios from 'axios';
 
@@ -11,6 +10,17 @@ export default function MapComponent() {
   const [longitude, setLongitude] = useState(0);
   const [locStatus, setLocStatus] = useState(false);
   const mapRef = useRef(null);
+  const [isTasksVisible, setIsTasksVisible] = useState(false);
+  const [isInfoVisible, setIsInfoVisible] = useState(false);
+  const [selectedButton, setSelectedButton] = useState(null);
+
+  const toggleTasks = () => {
+    setIsTasksVisible(!isTasksVisible);
+  };
+
+  const toggleInfo = () => {
+    setIsInfoVisible(!isInfoVisible);
+  };
 
   const getLocation = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
@@ -30,16 +40,54 @@ export default function MapComponent() {
         },
         1500 // duration in milliseconds
       );
+
+      // execute this line after all the api calls finish
+      toggleInfo();
     }
   }
-
-  const [selectedButton, setSelectedButton] = useState(null);
-  const showTasksPopup = () => {
-    console.log("Tasks button pressed");
-  };
   
   return (
     <View style={styles.container}>
+      <Modal
+        visible={isTasksVisible}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={toggleTasks}
+      >
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+          <View style={{ backgroundColor: 'white', padding: 20, borderRadius: 10, width: '80%', maxHeight: '80%' }}>
+            <ScrollView>
+              <Text>Scrollable content goes here...</Text>
+              {/* Add more content here */}
+            </ScrollView>
+
+            <TouchableOpacity onPress={toggleTasks} style={{ marginTop: 20 }}>
+              <Text>Close Tasks</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
+      <Modal
+        visible={isInfoVisible}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={toggleInfo}
+      >
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+          <View style={{ backgroundColor: 'white', padding: 20, borderRadius: 10, width: '80%', maxHeight: '50%' }}>
+            <ScrollView>
+              <Text>Scrollable content goes here...</Text>
+              {/* Add more content here */}
+            </ScrollView>
+
+            <TouchableOpacity onPress={toggleInfo} style={{ marginTop: 20 }}>
+              <Text>Close Info</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
       <View style={styles.mapContainer}>
         <MapView style={styles.map} ref={mapRef}>
           {locStatus ? (
@@ -60,7 +108,7 @@ export default function MapComponent() {
             styles.taskButton,
             selectedButton === 'Tasks' && styles.selectedButton,
           ]}
-          onPress={() => showTasksPopup()}>
+          onPress={() => toggleTasks()}>
           <Svg width="64" height="64" viewBox="0 0 83 83" fill="none" xmlns="http://www.w3.org/2000/svg">
             <Path d="M83 41.5C83 64.4198 64.4198 83 41.5 83C18.5802 83 0 64.4198 0 41.5C0 18.5802 18.5802 0 41.5 0C64.4198 0 83 18.5802 83 41.5Z" fill="#ADEFFC"/>
             <Path d="M63.4981 19.5031L70.1974 20.8424C70.5571 20.9143 70.8529 21.1782 70.9569 21.534C71.0094 21.7068 71.014 21.8907 70.9704 22.0659C70.9267 22.2412 70.8364 22.4014 70.709 22.5294L65.2209 28.0225C64.5643 28.678 63.6744 29.0461 62.7466 29.0459H58.1938L46.7619 40.4837C46.98 41.3073 47.0201 42.168 46.8795 43.0084C46.739 43.8487 46.421 44.6495 45.9468 45.3573C45.4725 46.0651 44.8529 46.6637 44.1292 47.1132C43.4055 47.5627 42.5944 47.8529 41.7498 47.9642C40.9052 48.0756 40.0466 48.0057 39.2311 47.7592C38.4156 47.5127 37.6621 47.0952 37.0206 46.5345C36.3791 45.9739 35.8644 45.2829 35.5109 44.5077C35.1573 43.7325 34.973 42.8909 34.9702 42.0388C34.9708 41.1189 35.1829 40.2114 35.59 39.3865C35.9972 38.5616 36.5885 37.8414 37.3183 37.2815C38.0481 36.7216 38.8968 36.337 39.7989 36.1575C40.701 35.9779 41.6323 36.0082 42.5209 36.246L53.9568 24.8042V20.2587C53.9568 19.3312 54.3246 18.4397 54.9801 17.784L60.4722 12.291C60.6003 12.1636 60.7604 12.0733 60.9357 12.0296C61.1109 11.986 61.2947 11.9906 61.4675 12.0431C61.8233 12.1471 62.0871 12.4429 62.159 12.8027L63.4981 19.5031Z" fill="#FFFDEF"/>
