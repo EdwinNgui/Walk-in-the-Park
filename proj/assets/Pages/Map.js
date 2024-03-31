@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import MapView, {Marker} from 'react-native-maps';
 import { StyleSheet, View , Button, TouchableOpacity, Text} from 'react-native';
 import * as Location from 'expo-location';
@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
   taskContainer:{
     position: 'absolute',
     display: 'flex',
-    top: 120,
-    left: 20,
+    top: 80,
+    left: 15,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -109,6 +109,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#ffffff',
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+    borderRadius: 30,
   },
   button:{
     justifyContent: 'center',
