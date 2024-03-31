@@ -34,7 +34,9 @@ export default function MapComponent() {
         </MapView>
       </View>
       <View style = {styles.buttonContainer}>
-        <Text onPress={getLocation} style={styles.button}>Location</Text>
+        <View style = {styles.getLocationContainer}>
+          <Text onPress={getLocation} style={styles.button}>Location</Text>
+        </View>
       </View>
     
     </View>
@@ -54,17 +56,19 @@ const styles = StyleSheet.create({
   buttonContainer:{
     height:'20%',
     display:'flex',
-    backgroundColor:'red',
     alignItems: 'center',
     justifyContent: 'center',
     
   },
   button:{
+    
+  },
+  getLocationContainer : {
     display:'flex',
     justifyContent:'center',
     alignItems:'center',
     textAlign:'center',
     height:'100%',
     backgroundColor:'blue'
-  }
+  },
 });
