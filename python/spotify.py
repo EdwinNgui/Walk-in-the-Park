@@ -19,4 +19,10 @@ def get_song_info(query):
         tuple: song name, album name, artist name, spotify url, album image url
     '''
     data = sp.search(q=query, limit=1)['tracks']['items'][0]
-    return data['name'], data['album']['name'], data['artists'][0]['name'], data['external_urls']['spotify'], data['album']['images'][0]['url']
+    return {
+        "title": data['name'],
+        "album": data['album']['name'],
+        "artist": data['artists'][0]['name'],
+        "spotify": data['external_urls']['spotify'],
+        "art": data['album']['images'][0]['url']
+        }
