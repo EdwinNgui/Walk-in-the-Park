@@ -14,10 +14,10 @@ export default function Footer({ onButtonPress }) {
       <TouchableOpacity
         style={[
           styles.button,
-          selectedButton === 'History' && styles.selectedButton,
+          selectedButton === 'Profile' && styles.selectedButton,
         ]}
-        onPress={() => handleButtonPress('History')}>
-        <Text style={[styles.text, selectedButton === 'History' && styles.selectedText]}>History</Text>
+        onPress={() => handleButtonPress('Profile')}>
+        <Text style={[styles.text, selectedButton === 'Profile' && styles.selectedText]}>Profile</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[
@@ -30,10 +30,10 @@ export default function Footer({ onButtonPress }) {
       <TouchableOpacity
         style={[
           styles.button,
-          selectedButton === 'Profile' && styles.selectedButton,
+          selectedButton === 'History' && styles.selectedButton,
         ]}
-        onPress={() => handleButtonPress('Profile')}>
-        <Text style={[styles.text, selectedButton === 'Profile' && styles.selectedText]}>Profile</Text>
+        onPress={() => handleButtonPress('History')}>
+        <Text style={[styles.text, selectedButton === 'History' && styles.selectedText]}>History</Text>
       </TouchableOpacity>
     </View>
   );
