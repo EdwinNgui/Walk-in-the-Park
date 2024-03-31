@@ -232,7 +232,6 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   text: {
-    fontFamily: 'Nunito',
     fontSize: 24,
     fontWeight: 800,
     padding: 6,
