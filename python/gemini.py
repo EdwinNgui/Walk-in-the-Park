@@ -1,7 +1,15 @@
 from google.cloud import aiplatform
 import os
-    
+from dotenv import load_dotenv
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+
+load_dotenv()
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "application_default_credentials.json"
+cid = os.getenv('SPOTIFY_CLIENT_ID')
+secret = os.getenv('SPOTIFY_CLIENT_SECRET')
+client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
+sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 PROJECT_ID = 865071625837  # @param {type:"string"} ENV VARIABLE
 LOCATION = "us-central1"  # @param {type:"string"}
@@ -81,6 +89,12 @@ def print_multimodal_prompt(contents: list):
             IPython.display.display(load_image_from_url(url))
         else:
             print(content)
+
+# returns song name, album name, artist name, spotify url, album image url
+def get_song_info(query):
+    data = sp.search(q=query, limit=1)['tracks']['items'][0]
+    return data['name'], data['album']['name'], data['artists'][0]['name'], data['external_urls']['spotify'], data['album']['images'][0]['url']
+
 
 # Load from local file
 #image = Image.load_from_file("image.png")
