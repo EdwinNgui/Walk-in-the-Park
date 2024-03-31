@@ -13,6 +13,9 @@ export default function History(props) {
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false} // Optionally hide the vertical scroll indicator
     >
+      <View style = {styles.title}>
+            <Text style ={{fontWeight:700, fontSize: 30}}>History</Text>
+        </View>
       <View style = {styles.calendarContainer}>
         <Calendar
           year= {2024}
@@ -126,5 +129,12 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
-  }
+  },
+  title: {
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    paddingTop: 30,
+    paddingBottom: 20,
+  },
 });
