@@ -11,3 +11,4 @@ descriptor = (generate_response([
     ]))
 #print(descriptor)
 song = (generate_response(["recommend me a song by its name and artist only, inspired by the terms " + descriptor +". This should not contain any of the terms in the title though, and recommend me only songs that are more likely to be commonly known songs if possible."]))
+#print(song)

@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Footer from './assets/Pages/Footer';
 import History from './assets/Pages/History';
-import Map from './assets/Pages/Map';
 import Profile from './assets/Pages/Profile';
-import MapComponent from './assets/Pages/MapPin';
+import MapComponent from './assets/Pages/Map';
+import Header from './assets/Pages/Header';
 export default class App extends React.Component {
   state = {
     page: 'History',
@@ -33,6 +33,7 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
+        <Header/>
         {currentPage}
         <Footer onButtonPress={this.handleButtonPress} />
       </View>
