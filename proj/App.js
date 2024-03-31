@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
 
   },
   mapContainer:{
-    height:'50%'
+    height:'100%'
   },
   pageContainer:{
     height:'50%'
