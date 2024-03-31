@@ -1,0 +1,74 @@
+{
+    "2024-01-01": {
+            "culture": "Greek, Chinese, Italian, Korean",
+            "history": "Challenges faced by this community include economic hardship, social marginalization, and limited access to education and healthcare. These challenges have led to a legacy of poverty, unemployment, and health disparities that persist to this day. Despite these obstacles, the community has maintained a strong sense of identity and resilience, fostering a sense of belonging and mutual support. Its members actively contribute to the creation of a diverse and inclusive society, promoting understanding, respect, and equity for all.",
+            "latitude": 43.6634932,
+            "location": [
+            "Harbord Village",
+            "University–Rosedale",
+            "Old Toronto"
+            ],
+            "longitude": -79.3986401,
+            "song_info": {
+            "album": "About Damn Time",
+            "art": "https://i.scdn.co/image/ab67616d0000b273b817e721691aff3d67f26c04",
+            "artist": "Lizzo",
+            "spotify": "https://open.spotify.com/track/1PckUlxKqWQs3RlWXVBLw3",
+            "title": "About Damn Time"
+            }
+        },
+    "2024-01-02": {
+            "culture": "Italian, Portuguese, Chinese, Vietnamese, Thai, Jewish",
+            "history": "The challenges faced by this community include discrimination, prejudice, and exclusion. These challenges have led to a history of poverty, violence, and other social problems. Despite these challenges, this community has remained resilient and has worked to create a more diverse and inclusive society. This group of people supports a diverse and inclusive community by promoting understanding and respect for all people, regardless of their race, culture, or background.",
+            "latitude": 43.6533055,
+            "location": [
+            "Kensington Market",
+            "University–Rosedale",
+            "Old Toronto"
+            ],
+            "longitude": -79.4026747,
+            "song_info": {
+            "album": "16 Most Requested Songs",
+            "art": "https://i.scdn.co/image/ab67616d0000b273dd6b56be619059b476179aad",
+            "artist": "Bobby Vinton",
+            "spotify": "https://open.spotify.com/track/3WO8ZBnOtad3xMz46Z54pY",
+            "title": "Blue Velvet"
+            }
+        },
+    "2024-01-03": {
+        "culture": "Italian, Chinese, Portuguese",
+        "history": "Challenges faced: This community has faced systemic racism, discrimination, and prejudice, resulting in economic and social marginalization, health disparities, and cultural erasure. These challenges have hindered their progress and contributed to their underrepresentation in various aspects of society.\n\nResilience and inclusion:  Despite adversity, this community has demonstrated resilience and adaptability. They have forged strong bonds within their neighborhoods, preserving their cultural heritage and traditions. They actively promote diversity and inclusion, advocating for equal rights and opportunities, and fostering understanding and reconciliation.",
+        "latitude": 43.6554196,
+        "location": [
+        "Old Toronto",
+        "Palmerston–Little Italy",
+        "Toronto"
+        ],
+        "longitude": -79.4254533,
+        "song_info": {
+        "album": "Views",
+        "art": "https://i.scdn.co/image/ab67616d0000b2739416ed64daf84936d89e671c",
+        "artist": "Drake",
+        "spotify": "https://open.spotify.com/track/0wwPcA6wtMf6HUMpIRdeP7",
+        "title": "Hotline Bling"
+        }
+    },
+    "2024-02-10": {
+        "culture": "French, Chinese, Vietnamese, Jewish",
+        "history": "The challenges faced by this community, which encompasses both cultural and racial aspects, have been significant and long-lasting. Historically, discrimination, prejudice, and systemic barriers have limited their opportunities, hindered their progress, and perpetuated a cycle of inequality. These challenges have profoundly affected their health, education, economic well-being, and overall sense of belonging. However, this community has also demonstrated resilience and determination in overcoming these obstacles, fostering a diverse and inclusive environment where all members feel valued and respected.",
+        "latitude": 48.8583701,
+        "location": [
+        "Paris",
+        "Gros Caillou",
+        "Paris"
+        ],
+        "longitude": 2.291901,
+        "song_info": {
+        "album": "Edith Piaf - The Best Of",
+        "art": "https://i.scdn.co/image/ab67616d0000b2738be513cb84934747b7d6abab",
+        "artist": "Édith Piaf",
+        "spotify": "https://open.spotify.com/track/3lAun9V0YdTlCSIEXPvfsY",
+        "title": "La Vie en rose"
+        }
+    }
+}
