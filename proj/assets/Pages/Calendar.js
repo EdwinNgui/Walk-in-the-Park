@@ -47,16 +47,36 @@ const Calendar = (props) => {
         // Return the day of the month, which gives the number of days in the month
         return lastDayOfMonth.getDate();
     }
+    const getMonthNumber = monthName => {
+        const months = {
+          "January": "01",
+          "February": "02",
+          "March": "03",
+          "April": "04",
+          "May": "05",
+          "June": "06",
+          "July": "07",
+          "August": "08",
+          "September": "09",
+          "October": "10",
+          "November": "11",
+          "December": "12"
+        };
+      
+        return months[monthName];
+      };
+      
     const daysLg = Array(getFirstDayOfWeek(year,month)).fill(0).concat([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ,21,22,23,24,25,26,27,28,29,30 ,31])
     const daysSm = Array(getFirstDayOfWeek(year,month)).fill(0).concat([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ,21,22,23,24,25,26,27,28,29,30])
     const daysFe = Array(getFirstDayOfWeek(year,month)).fill(0).concat([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ,21,22,23,24,25,26,27,28,29])
+    const passback = (arr) => props.clicked(arr);
     const handleClick = (m,y,d) =>{
         setPopup(true);
         setDate0([m,y,d])
-        passback()
+        passback(`http://100.67.202.66:6450/get_marker?year=${y}&month=${getMonthNumber(m)}&day=${d}`)
     }
-    const passback = props.clicked;
     
+
     const rendewhiteDivsLg = daysLg.map((text, index) => (
         !activeDates[month].includes(text) ? 
         <View key={index} onTouchEnd = {props.clicked}style={text !== 0 ? {display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' } : {pointerEvents: 'none',display:'flex', justifyContent:'center', alignItems:'center',  width: 35,height:30, backgroundColor : 'white' }}>

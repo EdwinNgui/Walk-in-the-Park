@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, Text ,ScrollView } from 'react-native';
 import Calendar from './Calendar';
-import { useState } from 'react';
-export default function History() {
-  const [test, setTest] = useState('white')
-  const handlePopup = () =>{
-    setTest('blue')
+
+export default function History(props) {
+  const goOrange = (arr) =>{
+    passback(arr)
   }
+  const passback = (arr) => props.onOrange(arr);
+
   return (
     <ScrollView 
       contentContainerStyle={styles.container}
@@ -16,14 +17,14 @@ export default function History() {
         <Calendar
           year= {2024}
           month='January'
-          clicked = {handlePopup}
+          clicked = {(arr) => goOrange(arr)}
         />
       </View>
       <View style = {styles.calendarContainer}>
         <Calendar
           year= {2024}
           month='February'
-          clicked = {handlePopup}
+          clicked = {(arr) => goOrange(arr)}
         />
       </View>
 
@@ -31,35 +32,35 @@ export default function History() {
         <Calendar
           year= {2024}
           month='March'
-          clicked = {handlePopup}
+          clicked = {(arr) => goOrange(arr)}
         />
       </View>
       <View style = {styles.calendarContainer}>
         <Calendar
           year= {2024}
           month='April'
-          clicked = {handlePopup}
+          clicked = {(arr) => goOrange(arr)}
         />
       </View>
       <View style = {styles.calendarContainer}>
         <Calendar
           year= {2024}
           month='May'
-          clicked = {handlePopup}
+          clicked = {(arr) => goOrange(arr)}
         />
       </View>
       <View style = {styles.calendarContainer}>
         <Calendar
           year= {2024}
           month='June'
-          clicked = {handlePopup}
+          clicked = {(arr) => goOrange(arr)}
         />
       </View>
       <View style = {styles.calendarContainer}>
         <Calendar
           year= {2024}
           month='July'
-          clicked = {handlePopup}
+          clicked = {(arr) => goOrange(arr)}
           
         />
       </View>
@@ -67,35 +68,35 @@ export default function History() {
         <Calendar
           year= {2024}
           month='August'
-          clicked = {handlePopup}
+          clicked = {(arr) => goOrange(arr)}
         />
       </View>
       <View style = {styles.calendarContainer}>
         <Calendar
           year= {2024}
           month='September'
-          clicked = {handlePopup}
+          clicked = {(arr) => goOrange(arr)}
         />
       </View>
       <View style = {styles.calendarContainer}>
         <Calendar
           year= {2024}
           month='October'
-          clicked = {handlePopup}
+          clicked = {(arr) => goOrange(arr)}
         />
       </View>
       <View style = {styles.calendarContainer}>
         <Calendar
           year= {2024}
           month='November'
-          clicked = {handlePopup}
+          clicked = {(arr) => goOrange(arr)}
         />
       </View>
       <View style = {styles.calendarContainer}>
         <Calendar
           year= {2024}
           month='December'
-          clicked = {handlePopup}
+          clicked = {(arr) => goOrange(arr)}
         />
       </View>
       
