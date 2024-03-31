@@ -23,4 +23,4 @@ def get_district_suburb_city(lat,long):
     city = (resp_data["features"][0]["properties"]["city"])
     return [district,suburb,city]
 
-print(get_district_suburb_city(45.3500402,-75.7468999))
+#print(get_district_suburb_city(45.3500402,-75.7468999))
