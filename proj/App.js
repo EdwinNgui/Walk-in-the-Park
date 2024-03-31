@@ -5,7 +5,6 @@ import History from './assets/Pages/History';
 import Profile from './assets/Pages/Profile';
 import MapComponent from './assets/Pages/Map';
 import Header from './assets/Pages/Header';
-import InfoCard from './assets/Pages/InfoCard';
 import Spotify from './assets/Pages/Spotify';
 export default class App extends React.Component {
   state = {

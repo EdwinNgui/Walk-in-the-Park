@@ -1,7 +1,7 @@
 import React from 'react'
 import {Text, View, StyleSheet} from 'react-native';
 import { useState } from 'react';
-import InfoCard from './InfoCard';
+
 const Calendar = (props) => {
     const [popup, setPopup] = useState(false);
     const [date0, setDate0] = useState([0,0,0]);
