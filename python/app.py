@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, url_for, redirect
+from flask import Flask, jsonify, request, url_for, redirect, json
 from geoapify import get_district_suburb_city
 from gemini import generate_response
 from spotify import get_song_info
@@ -6,6 +6,8 @@ from spotify import get_song_info
 app = Flask(__name__)
 
 response =     {
+        "latitude": "h",
+        "longitude": "h",
         "location": "h",
         "culture": "h",
         "song_info": "h",
@@ -32,12 +34,23 @@ def get_song():
 
     history = generate_response(["Community here refers to both culture and race. Provide a 3-4 sentence brief summary on the challenges faced by this community and how it has affected them up to present day, as well as of how this group of people supports a diverse and inclusive community."])
 
+    response["latitude"] = lat
+    response["longitude"] = long
     response["location"] = location
     response["culture"] = cultural_descriptor
     response["song_info"] = song_info
     response["history"] = history
 
     return jsonify(response)
+
+@app.route('/get_marker')
+def get_marker():
+    year = str(request.args.get('year')).zfill(2)
+    month = str(request.args.get('month')).zfill(2)
+    day = str(request.args.get('day')).zfill(2)
+    with open('database.json', encoding='utf-8') as fh:
+        data = json.load(fh)
+    return data.get("%s-%s-%s" % (year,month,day))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=6450)  # Change port as needed

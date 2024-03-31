@@ -1,2 +1,5 @@
 env/
 python/application_default_credentials.json
+python/__py_cache__
+python/.cache
+.cache
