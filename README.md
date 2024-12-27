@@ -3,7 +3,7 @@
 
 ![thumbnail](https://github.com/EdwinNgui/Walk-in-the-Park/assets/56236512/58e8b5a5-3e62-4361-9d74-22c0980ca182)
 
-[Winner of Best AI in Education Hack in *GenAI Genesis Hacks 2024*](https://devpost.com/software/tracy-dm41vu)
+[Winner of Best AI in Education Hack in *GenAI Genesis Hacks 2024*](https://devpost.com/software/walk-in-the-park)
 
 # Table of Contents
 - [Walk in the Park](#walk-in-the-park)
